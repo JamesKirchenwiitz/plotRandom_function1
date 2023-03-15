@@ -18,3 +18,17 @@
 ##                     values
 ##     Mean_x = the sample mean of Random_values
 ##     SD_x = the sample standard deviation of Random_values
+
+
+plotRandomNormal <- function(numpts = 1000, mu = 24, sigma = 3, numbins = 15, 
+                              meanColor = 'red', seed = 123456) {
+  set.seed(seed)
+  rand_x <- rnorm(numpts, mean = mu, sd = sigma)
+  mean_x <- mean(rand_x)
+  hist(rand_x, breaks = numbins)
+  abline(v = mean_x, col = meanColor)
+  list(Random_values = rand_x,
+       Mean = mean_x,
+       SD_x = sd(rand_x))
+}
+plotRandomNormal()
